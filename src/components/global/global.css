@@ -1,0 +1,93 @@
+/* Tailwind config */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global components CSS file */
+
+
+/* Navbar */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.navbar > .nav-logo{
+    @apply m-2;
+}
+
+
+.navbar > .nav-motto{
+    @apply m-2;
+    width: 45%;
+}
+
+
+.navbar > .nav-motto > ul{
+    @apply m-2 flex justify-around;
+}
+
+/* Hero section */
+.hero-section{
+    @apply bg-gray-300;
+    height: 30%;
+    display: grid;
+    place-items: center;
+}
+
+.hero-section h1{
+    font-size: 2.5rem;
+    text-shadow: 3px 3px solid #333;
+}
+
+@media screen and (max-width: 700px) {
+    .hero-section h1{
+        font-size: 1.7rem;
+    }
+}
+
+/* Sign in Form */
+
+.sign-in-form{
+    width: 340px;
+    @apply mx-auto;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.sign-in-form .form-container {
+    margin: 5px;
+}
+
+.sign-in-form .form-container input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin: 2px;
+    border-radius: 10px;
+}
+
+.sign-in-form .form-container input:hover,
+.sign-in-form .form-container input:active{
+    border: 1px solid rgb(43, 95, 209);
+}
+
+.form-btn{
+    margin: 20px;
+}
+
+.form-btn > button{
+    @apply bg-blue-500 text-white;
+    padding: 10px;
+    width: 200px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.form-btn > button:hover{
+    box-shadow: 4px 4px 14px #999797;
+    background: #ccc;
+    color: rgb(10, 96, 182);
+}
