@@ -1,0 +1,67 @@
+/* Tailwind config */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Side section */
+.home-container {
+    display: flex;
+}
+
+.home-sidenav {
+    width: 20%;
+    height: calc(100vh - 60px);
+}
+
+.home-sidenav ul {
+    margin: 1.8rem 1.3rem;
+}
+
+.home-sidenav ul li {
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 0 25px 25px 0;
+    transition: all .3s ease;
+}
+
+.home-sidenav ul li:hover {
+    background: #ccc;
+    font-weight: 700;
+}
+
+.dashboard {
+    width: 80%;
+    border-left: 1px solid #beb9b9;
+    overflow-y: scroll;
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.link-box{
+    width: 25%;
+    background: #e6e6e6;
+    margin: 20px 10px;
+    height: 200px;
+    border-radius: 20px;
+}
+
+.link-box:hover{
+    cursor: pointer;
+    box-shadow: 4px 4px 15px #ababab;
+}
+
+.dashboard-action {
+    width: 80%;
+    margin: 20px;
+    padding: 30px;
+    height: 140px;
+    border-radius: 10px;
+}
+
+.dashboard-action:hover {
+    box-shadow: 2px 2px 13px #ababab;
+}

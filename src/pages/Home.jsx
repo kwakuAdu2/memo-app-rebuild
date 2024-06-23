@@ -1,10 +1,22 @@
 import React from 'react'
 
+// Components
+import Navbar from "../components/global/Navbar"
+import Sidenav from '../components/home/Sidenav'
+import Dashboard from '../components/home/Dashboard'
+
+// Styles
+import "../components/home/home.css"
+
+
 const Home = () => {
   return (
-    <div className="mt-20 mx-auto">
-      <p className="text-center text-red-500">This app is under development, thanks for testing 👩‍💻</p>
-      <h1 className="text-center font-bold">Home</h1>
+    <div className='overflow-none'>
+      <Navbar />
+     <div className="home-container">
+     <Sidenav />
+     <Dashboard />
+     </div>
     </div>
   )
 }
