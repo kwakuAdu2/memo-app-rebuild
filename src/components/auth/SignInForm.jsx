@@ -47,7 +47,6 @@ const SignInForm = () => {
         if (validateForm()) {
             try {
                 await signInWithEmailAndPassword(auth, user.email, user.password);
-                alert("Login successful");
                 navigate("/home");
             } catch (error) {
                 console.log("Error logging in: ", error);
