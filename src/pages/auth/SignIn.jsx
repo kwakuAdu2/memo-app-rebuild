@@ -6,10 +6,12 @@ import SignInForm from '../../components/auth/SignInForm'
 
 const SignIn = () => {
   return (
-    <div className="w-screen h-screen flex flex-col">
+    <div className="w-screen sign-in-content h-screen flex flex-col">
       <Navbar />
-      <Hero />
-      <SignInForm />
+      <div className="flex justify-around">
+        <Hero />
+        <SignInForm />
+      </div>
     </div>
   )
 }

@@ -4,9 +4,11 @@ const Hero = () => {
   return (
    <section className='hero-section'> 
     <h1 className='uppercase text-center font-bold'>
-        welcome to achenten appiah-mensah  <br />
-        digitalized memo platform
+        {/* welcome to NCCE  <br />
+        digitalized memo platform */}
+        NCCE DigiMemo
     </h1>
+    <p>Your Seamless Memo Solution</p>
    </section>
   )
 }

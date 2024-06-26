@@ -12,27 +12,32 @@
 .home-sidenav {
     width: 20%;
     height: calc(100vh - 60px);
+    background: #e6e6e6;
+    color: #333;
 }
 
 .home-sidenav ul {
-    margin: 1.8rem 1.3rem;
+    margin: 1rem;
 }
 
 .home-sidenav ul li {
     font-size: 1.2rem;
     padding: 10px;
-    border-radius: 0 25px 25px 0;
     transition: all .3s ease;
+    border-bottom: 1px solid #ccc;
 }
 
 .home-sidenav ul li:hover {
-    background: #ccc;
     font-weight: 700;
+    background: #1b431b;
+    color: #e6e6e6;
+    border: none;
+    border-radius: 0 25px 25px 0;
 }
 
 .dashboard {
     width: 80%;
-    border-left: 1px solid #beb9b9;
+    border-left: 1px solid #5d5b5b;
     overflow-y: scroll;
 }
 
@@ -42,10 +47,10 @@
 }
 
 .link-box{
-    width: 25%;
+    width: 120px;
     background: #e6e6e6;
     margin: 20px 10px;
-    height: 200px;
+    height: 100px;
     border-radius: 20px;
 }
 

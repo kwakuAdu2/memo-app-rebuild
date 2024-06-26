@@ -5,7 +5,7 @@ const Linkbox = ({ memoNumber, messageType, messageValue }) => {
     <div className='link-box flex flex-col items-center justify-center'>
         <h3 className='font-bold text-4xl'>{memoNumber}</h3>
         <h3 className='font-semibold'>{messageType}</h3>
-        <p>{messageValue}</p>
+        {/* <p>{messageValue}</p> */}
     </div>
   )
 }

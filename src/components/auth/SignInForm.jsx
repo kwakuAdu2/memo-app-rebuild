@@ -17,6 +17,8 @@ const SignInForm = () => {
         general: ""
     });
 
+    const [loading, setLoading] = useState(false);
+
     const validateForm = () => {
         let valid = true;
         let errors = {};
@@ -45,6 +47,7 @@ const SignInForm = () => {
         e.preventDefault();
 
         if (validateForm()) {
+            setLoading(true);
             try {
                 await signInWithEmailAndPassword(auth, user.email, user.password);
                 navigate("/home");
@@ -59,12 +62,14 @@ const SignInForm = () => {
                     errorMessage = "Invalid email address.";
                 }
                 setErrors({ ...errors, general: errorMessage });
+            } finally {
+                setLoading(false);
             }
         }
     }
 
     return (
-        <form method='post' className='sign-in-form mt-10 grid bg-gray-200 items-center justify-center' onSubmit={signInAuth}>
+        <form method='post' className='sign-in-form mt-10 grid bg-white items-center justify-center' onSubmit={signInAuth}>
             <h1 className='text-2xl m-3 text-center font-semibold'>Sign In</h1>
             <div className="form-container grid">
                 <label htmlFor="email">Email</label>
@@ -74,6 +79,7 @@ const SignInForm = () => {
                     placeholder='example@gmail.com'
                     value={user.email}
                     onChange={(e) => setUser({ ...user, email: e.target.value })}
+                    disabled={loading}
                 />
                 {errors.email && <span className='text-xs text-red-500'>{errors.email}</span>}
             </div>
@@ -86,12 +92,15 @@ const SignInForm = () => {
                     value={user.password}
                     className={`${errors.password && 'border-red-500'}`}
                     onChange={(e) => setUser({ ...user, password: e.target.value })}
+                    disabled={loading}
                 />
                 {errors.password && <span className='text-xs text-red-500'>{errors.password}</span>}
             </div>
             {errors.general && <span className="text-xs text-red-500">{errors.general}</span>}
             <div className="form-btn mx-auto">
-                <button className='text-center font-semibold' type="submit">Login</button>
+                <button className={`text-center font-semibold ${loading && 'disabled'}`} type="submit">
+                    {loading ? "Signing In..." : "Login"}
+                </button>
             </div>
         </form>
     )

@@ -42,8 +42,8 @@ const Sidenav = () => {
       <ul>
         {
           sideNavItems.map((item) => (
-            <li key={item.id} className='my-4 border-b'>
-              <Link className='flex my-2' to={"#"}>
+            <li key={item.id} className='my-1'>
+              <Link className='flex my-1' to={"#"}>
                 {item.icon}
                 <span className='ml-4'>{item.text}</span>
               </Link>
