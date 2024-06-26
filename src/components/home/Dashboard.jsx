@@ -36,13 +36,14 @@ const actionDummy = sideNavItems
 const Dashboard = () => {
   return (
     <section className="dashboard">
-        <div className="top-section">
+      <h1 className='text-3xl font-semibold m-10'>Recent Memos</h1>
+        {/* <div className="top-section">
           {
             dummyMessage.map((message) => (
               <Linkbox memoNumber={message.messageNum} messageType={message.type} messageValue={message.decription}/>
             ))
           }
-        </div>
+        </div> */}
         <div className="bottom-section grid grid-cols-3 items-center">
           {
             actionDummy.map((item) => (

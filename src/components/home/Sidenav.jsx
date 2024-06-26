@@ -7,32 +7,32 @@ export const sideNavItems = [
   {
     id: 1,
     text: "Compose",
-    icon: <PencilIcon className='w-6' />
+    icon: <PencilIcon className='w-6 hover:font-semi-bold hover:text-white ' />
   },
   {
     id: 2,
     text: "Inbox",
-    icon: <EnvelopeIcon className='w-6' />
+    icon: <EnvelopeIcon className='w-6 hover:font-semi-bold hover:text-white' />
   },
   {
     id: 3, // Changed id to 3
     text: "Sent",
-    icon: <PaperAirplaneIcon className='w-6' />
+    icon: <PaperAirplaneIcon className='w-6 hover:font-semi-bold hover:text-white' />
   },
   {
     id: 4,
     text: "Starred",
-    icon: <StarIcon className='w-6' />
+    icon: <StarIcon className='w-6 hover:font-semi-bold hover:text-white' />
   },
   {
     id: 5,
     text: "Drafts",
-    icon: <DocumentIcon className='w-6' />
+    icon: <DocumentIcon className='w-6 hover:font-semi-bold hover:text-white' />
   },
   {
     id: 6,
     text: "Settings",
-    icon: <Cog6ToothIcon className='w-6' />
+    icon: <Cog6ToothIcon className='w-6 hover:font-semi-bold hover:text-white' />
   }
 ];
 
