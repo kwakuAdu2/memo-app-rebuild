@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Linkbox from './dashboard/Linkbox'
 import { sideNavItems } from './Sidenav';
 import DashboardAction from './dashboard/DashboardAction';
+
+// Firebase config
+
+import {
+ collection,
+ getDocs
+} from "firebase/firestore"
+
+import { db } from "../../lib/firebaseConfig"
+import MemoPreview from './dashboard/MemoPreview';
 
 const dummyMessage = [
   {
@@ -34,22 +44,34 @@ const dummyMessage = [
 const actionDummy = sideNavItems
 
 const Dashboard = () => {
+
+  const [memos, setMemos] = useState([]);
+
+  useEffect(() => {
+    const fetchRecentMemos = async () => {
+      const querySnapshot = await getDocs(collection(db, "memo"));
+      const dataList = querySnapshot.docs.map(doc => doc.data());
+      setMemos(dataList)
+    }
+
+    fetchRecentMemos();
+  },[])
+
+  console.log("Memos", memos)
+ 
+  const newMemo = memos.slice(2, 5)
+  console.log("New Memo", newMemo)
   return (
     <section className="dashboard">
       <h1 className='text-3xl font-semibold m-10'>Recent Memos</h1>
-        {/* <div className="top-section">
-          {
-            dummyMessage.map((message) => (
-              <Linkbox memoNumber={message.messageNum} messageType={message.type} messageValue={message.decription}/>
-            ))
-          }
-        </div> */}
         <div className="bottom-section grid grid-cols-3 items-center">
-          {
-            actionDummy.map((item) => (
-              <DashboardAction icon={item.icon} text={item.text}/>
+
+           {
+            newMemo.map((memo) => (
+             <MemoPreview memo={newMemo} />
             ))
-          }
+          } 
+
         </div>
     </section>
   )

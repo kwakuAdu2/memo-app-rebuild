@@ -16,6 +16,12 @@
     color: #333;
 }
 
+@media screen and (max-width: 765px) {
+   .home-sidenav{
+    display: none;
+   }
+}
+
 .home-sidenav ul {
     margin: 1rem;
 }
@@ -38,7 +44,6 @@
 .dashboard {
     width: 80%;
     border-left: 1px solid #5d5b5b;
-    overflow-y: scroll;
 }
 
 .top-section {
