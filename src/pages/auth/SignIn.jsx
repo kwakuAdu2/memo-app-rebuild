@@ -8,7 +8,7 @@ const SignIn = () => {
   return (
     <div className="w-screen sign-in-content h-screen flex flex-col">
       <Navbar />
-      <div className="flex justify-around">
+      <div className="hero-content">
         <Hero />
         <SignInForm />
       </div>
