@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #008000
+    background-color: #407540;
     
 }
 
@@ -102,11 +102,16 @@
     width: 150px;
     border-radius: 10px;
     font-size: 20px;
-    background-color: #007BFF;
+    background-color: #285d28;
 }
 
 .form-btn > button:hover{
     box-shadow: 4px 4px 14px #999797;
     background: #ccc;
-    color: rgb(10, 96, 182);
+    color: #008000;
+}
+
+form-btn > button:user-invalid{
+    background: #ccc;
+    color: #801e00;
 }
