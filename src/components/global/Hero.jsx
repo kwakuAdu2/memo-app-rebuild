@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hero = () => {
   return (
-   <section className='hero-section sm:mt-10 md:mt-10'> 
+   <section className='hero-section'> 
     <h1 className='uppercase text-center font-bold'>
         {/* welcome to NCCE  <br />
         digitalized memo platform */}
