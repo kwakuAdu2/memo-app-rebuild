@@ -45,7 +45,7 @@ const actionDummy = sideNavItems
 
 const Dashboard = () => {
 
-  const [memos, setMemos] = useState([]);
+  let [memos, setMemos] = useState([]);
 
   useEffect(() => {
     const fetchRecentMemos = async () => {
@@ -57,18 +57,20 @@ const Dashboard = () => {
     fetchRecentMemos();
   },[])
 
-  console.log("Memos", memos)
  
-  const newMemo = memos.slice(2, 5)
-  console.log("New Memo", newMemo)
+  // const newMemo = memos.slice(2, 5)
+  // console.log("New Memo", newMemo)
+
+  memos = memos.slice(1, 4)
+
   return (
     <section className="dashboard">
-      <h1 className='text-3xl font-semibold m-10'>Recent Memos</h1>
-        <div className="bottom-section grid grid-cols-3 items-center">
+      <h1 className='text-3xl font-semibold m-10 w-4/5'>Recent Memos</h1>
+        <div className="bottom-section grid sm:grid-cols-3 ">
 
            {
-            newMemo.map((memo) => (
-             <MemoPreview memo={newMemo} />
+            memos.map((memo) => (
+             <MemoPreview memo={memo} />
             ))
           } 
 

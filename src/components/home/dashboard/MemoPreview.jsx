@@ -1,7 +1,9 @@
 import React from 'react';
+import "../../home/home.css"
+import { Link } from 'react-router-dom';
 
 const MemoPreview = ({ memo }) => {
-  let bodyContent = "";
+  let bodyContent = "This is a test memo, ";
 
   try {
     console.log("Original bodyDelta:", memo.bodyDelta);
@@ -16,48 +18,52 @@ const MemoPreview = ({ memo }) => {
 
   console.log("Memo preview:", memo);
   return (
-    <div className='grid p-6 bg-white rounded-lg shadow-lg' style={{ width: '300px', height: '500px', overflow: 'auto' }}>
-      <div className='header flex justify-between mb-4'>
+    <div className='grid p-6 bg-white rounded-lg memo-content  border-solid shadow-lg' style={{ width: '300px', height: '500px', overflow: 'auto' }}>
+      <div className='header flex justify-between mb-2'>
         <div>
-          <h3 className='text-xs font-semibold'>From:</h3>
+          <h3 className='text-xs font-bold'>From:</h3>
           <p>{memo.from}</p>
         </div>
         <div>
-          <h3 className='text-xs font-semibold'>To:</h3>
+          <h3 className='text-xs font-bold'>To:</h3>
           <p>{memo.to}</p>
         </div>
       </div>
-      <div className='mb-4'>
-        <h3 className='text-xs font-semibold'>Through:</h3>
+      {/* <div className='mb-2'>
+        <h3 className='text-xs font-bold'>Through:</h3>
         <p>{memo.through}</p>
       </div>
-      <div className='mb-4'>
-        <h3 className='text-xs font-semibold'>CC:</h3>
+      <div className='mb-2'>
+        <h3 className='text-xs font-bold'>CC:</h3>
         <p>{memo.cc}</p>
-      </div>
-      <div className='mb-4'>
-        <h3 className='text-xs font-semibold'>Date:</h3>
+      </div> */}
+      <div className='mb-2'>
+        <h3 className='text-xs font-bold'>Date:</h3>
         <p>{memo.date}</p>
       </div>
-      <div className='mb-4'>
-        <h3 className='text-xs font-semibold'>Subject:</h3>
+      <div className='mb-2'>
+        <h3 className='text-xs font-bold'>Subject:</h3>
         <p>{memo.subject}</p>
       </div>
-      <div className='mb-4'>
-        <h3 className='text-xs font-semibold'>Divisions:</h3>
+      {/* <div className='mb-2'>
+        <h3 className='text-xs font-bold'>Divisions:</h3>
         <p>{memo.divisions}</p>
-      </div>
-      <div className='mb-4'>
-        <h3 className='text-xs font-semibold'>Reference:</h3>
+      </div> */}
+      {/* <div className='mb-2'>
+        <h3 className='text-xs font-bold'>Reference:</h3>
         <p>{memo.ref}</p>
-      </div>
-      <div className='mb-4'>
-        <h3 className='text-xs font-semibold'>Minute:</h3>
+      </div> */}
+      <div className='mb-2'>
+        <h3 className='text-xs font-bold'>Minute:</h3>
         <p>{memo.minute}</p>
       </div>
       <div className='body mt-4'>
-        <h3 className='text-xs font-semibold'>Body:</h3>
-        <div dangerouslySetInnerHTML={{ __html: bodyContent }} />
+        <h3 className='text-xs font-bold'>Body:</h3>
+        <div dangerouslySetInnerHTML={{ __html: bodyContent.slice(0, 100)}} />
+      </div>
+      <div className="body mt-2 flex justify-end gap-3">
+        <Link className='text-blue-500 underline' to={"#"}>Preview</Link>
+        <Link className='text-blue-500 underline' to={"#"}>Edit</Link>
       </div>
     </div>
   );
