@@ -12,8 +12,9 @@
 
 /* Navbar */
 .navbar{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #407540;
     
@@ -32,6 +33,7 @@
     cursor: pointer;
     transition: all .3s ease;
     padding: 6px 7px;
+    border-radius: 20px;
 
 }
 
@@ -145,7 +147,7 @@
     color: #008000;
 }
 
-form-btn > button:user-invalid{
+.form-btn > button:user-invalid{
     background: #ccc;
     color: #801e00;
 }

@@ -18,16 +18,16 @@ const Navbar = () => {
         </div>
         <div className="nav-motto flex justify-around">
           <ul>
-            <li className='text-white font-semibold'><Link to='/about'>About</Link></li>
+            <li className='text-white font-semibold'><Link to='#'>About</Link></li>
           </ul>
           {userState ? (
               // <li className='text-white font-semibold'>{userState.email}</li>
-              <div className="flex justify-around w-1/5 items-center">
+              <div className="flex justify-around w-1/5 items-center mr-5">
                 <div className="icon-div">
-                  <BellAlertIcon className='w-6 text-white font-semibold'/>
+                  <BellAlertIcon onClick={() => alert("This feature is underdevelopement")} className='w-6 text-white font-semibold'/>
                 </div>
                 <div className="icon-div">
-                  <Cog6ToothIcon className='w-6 text-white font-semibold'/>
+                  <Cog6ToothIcon  onClick={() => alert("This feature is underdevelopement")} className='w-6 text-white font-semibold'/>
                 </div>
               </div>
             ) : (
