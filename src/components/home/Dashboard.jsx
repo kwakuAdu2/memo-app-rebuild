@@ -66,7 +66,7 @@ const Dashboard = () => {
   return (
     <section className="dashboard">
       <h1 className='text-3xl font-semibold m-10 w-4/5'>Recent Memos</h1>
-        <div className="bottom-section grid sm:grid-cols-3 ">
+        <div className="bottom-section grid sm:grid-cols- ">
 
            {
             memos.map((memo) => (
