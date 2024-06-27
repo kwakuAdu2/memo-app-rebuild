@@ -13,39 +13,10 @@ import {
 import { db } from "../../lib/firebaseConfig"
 import MemoPreview from './dashboard/MemoPreview';
 
-const dummyMessage = [
-  {
-    id: 222,
-    messageNum: 2,
-    type: "Inbox",
-    decription: `Number of Inbox ${`\n`} Memos `
-  }, 
-  {
-    id: 223,
-    messageNum: 2,
-    type: "Sent",
-    decription: `Number of Sent ${`\n`} Memos `
-  },
-  {
-    id: 224,
-    messageNum: 0,
-    type: "Starred",
-    decription: `Number of Starred ${`\n`} Memos `
-  },
-
-  {
-    id: 225,
-    messageNum: 0,
-    type: "Drafts",
-    decription: `Number of Drafts ${`\n`} Memos `
-  }
-];
-
-const actionDummy = sideNavItems
-
 const Dashboard = () => {
 
   let [memos, setMemos] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchRecentMemos = async () => {
@@ -55,21 +26,19 @@ const Dashboard = () => {
     }
 
     fetchRecentMemos();
+    setLoading(true)
   },[])
 
   const handleMemoEdit = () => {
     alert("This feature is under development");
   }
- 
-  // const newMemo = memos.slice(2, 5)
-  // console.log("New Memo", newMemo)
 
   memos = memos.slice(1, 4)
 
   return (
     <section className="dashboard">
       <h1 className='text-3xl font-semibold m-10 w-4/5'>Recent Memos</h1>
-        <div className="bottom-section grid grid-cols-3">
+        <div className="bottom-section grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1">
 
            {
             memos.map((memo) => (

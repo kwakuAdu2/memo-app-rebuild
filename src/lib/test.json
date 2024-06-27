@@ -1,0 +1,26 @@
+
+    {
+      "id": 222,
+      "messageNum": 2,
+      "type": "Inbox",
+      "decription": "Number of Inbox \n Memos "
+    }, 
+    {
+      "id": 223,
+      "messageNum": 2,
+      "type": "Sent",
+      "decription": "Number of Sent \n Memos "
+    },
+    {
+      "id": 224,
+      "messageNum": 0,
+      "type": "Starred",
+      "decription": "Number of Starred \n Memos "
+    },
+  
+    {
+      "id": 225,
+      "messageNum": 0,
+      "type": "Drafts",
+      "decription": "Number of Drafts \n Memos "
+    }
