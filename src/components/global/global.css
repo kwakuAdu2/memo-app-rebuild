@@ -25,10 +25,19 @@
 
 
 .navbar > .nav-motto{
-    @apply m-2;
     width: 45%;
 }
 
+.navbar .icon-div{
+    cursor: pointer;
+    transition: all .3s ease;
+    padding: 6px 7px;
+
+}
+
+.navbar .icon-div:hover {
+    background: #5d8d5d;
+}
 
 .navbar > .nav-motto > ul{
     @apply m-2 flex justify-around;

@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../lib/firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { UserContext } from '../../context/UserContext.jsx';
 
 const SignInForm = () => {
     const navigate = useNavigate();
+    const { setUserState } = useContext(UserContext);
 
-    const [user, setUser] = useState({
+    const [formState, setFormState] = useState({
         email: "",
         password: ""
     });
@@ -23,18 +25,18 @@ const SignInForm = () => {
         let valid = true;
         let errors = {};
 
-        if (!user.email) {
+        if (!formState.email) {
             errors.email = "Email is required";
             valid = false;
-        } else if (!/\S+@\S+\.\S+/.test(user.email)) {
+        } else if (!/\S+@\S+\.\S+/.test(formState.email)) {
             errors.email = "Email is not valid";
             valid = false;
         }
 
-        if (!user.password) {
+        if (!formState.password) {
             errors.password = "Password is required";
             valid = false;
-        } else if (user.password.length < 6) {
+        } else if (formState.password.length < 6) {
             errors.password = "Password must be at least 6 characters";
             valid = false;
         }
@@ -49,7 +51,8 @@ const SignInForm = () => {
         if (validateForm()) {
             setLoading(true);
             try {
-                await signInWithEmailAndPassword(auth, user.email, user.password);
+                const userCredential = await signInWithEmailAndPassword(auth, formState.email, formState.password);
+                setUserState(userCredential.user);
                 navigate("/home");
             } catch (error) {
                 console.log("Error logging in: ", error);
@@ -77,8 +80,8 @@ const SignInForm = () => {
                     type="email"
                     name='email'
                     placeholder='example@gmail.com'
-                    value={user.email}
-                    onChange={(e) => setUser({ ...user, email: e.target.value })}
+                    value={formState.email}
+                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     disabled={loading}
                 />
                 {errors.email && <span className='text-xs text-red-500'>{errors.email}</span>}
@@ -89,9 +92,9 @@ const SignInForm = () => {
                     type="password"
                     name='password'
                     placeholder='*******'
-                    value={user.password}
+                    value={formState.password}
                     className={`${errors.password && 'border-red-500'}`}
-                    onChange={(e) => setUser({ ...user, password: e.target.value })}
+                    onChange={(e) => setFormState({ ...formState, password: e.target.value })}
                     disabled={loading}
                 />
                 {errors.password && <span className='text-xs text-red-500'>{errors.password}</span>}
