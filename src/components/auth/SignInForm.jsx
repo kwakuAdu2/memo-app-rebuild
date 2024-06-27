@@ -1,12 +1,19 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../lib/firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { UserContext } from '../../context/UserContext.jsx';
 
+
 const SignInForm = () => {
     const navigate = useNavigate();
-    const { setUserState } = useContext(UserContext);
+    const { userState, setUserState } = useContext(UserContext);
+
+    useEffect(() => {
+        if(userState) {
+            navigate('/home')
+        }
+    }, [userState, navigate]);
 
     const [formState, setFormState] = useState({
         email: "",

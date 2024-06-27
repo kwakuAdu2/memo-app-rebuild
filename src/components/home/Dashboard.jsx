@@ -4,7 +4,6 @@ import { sideNavItems } from './Sidenav';
 import DashboardAction from './dashboard/DashboardAction';
 
 // Firebase config
-
 import {
  collection,
  getDocs
@@ -14,38 +13,37 @@ import { db } from "../../lib/firebaseConfig"
 import MemoPreview from './dashboard/MemoPreview';
 
 const Dashboard = () => {
-
-  let [memos, setMemos] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [memos, setMemos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchRecentMemos = async () => {
+      setLoading(true);
       const querySnapshot = await getDocs(collection(db, "memo"));
       const dataList = querySnapshot.docs.map(doc => doc.data());
-      setMemos(dataList)
+      setMemos(dataList);
+      setLoading(false);
     }
 
     fetchRecentMemos();
-    setLoading(true)
   },[])
 
   const handleMemoEdit = () => {
     alert("This feature is under development");
   }
 
-  memos = memos.slice(1, 4)
+  const recentMemos = memos.slice(0, 3);
 
   return (
     <section className="dashboard">
       <h1 className='text-3xl font-semibold m-10 w-4/5'>Recent Memos</h1>
         <div className="bottom-section grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1">
-
-           {
-            memos.map((memo) => (
-             <MemoPreview key={memo.id} memo={memo} handleMemoEdit={handleMemoEdit}/>
+          {loading ? 
+            <h1 className='text-center font-bold text-lg'>Memo is loading...</h1> : 
+            recentMemos.map((memo) => (
+              <MemoPreview key={memo.date} memo={memo} handleMemoEdit={handleMemoEdit}/>
             ))
-          } 
-
+          }
         </div>
     </section>
   )

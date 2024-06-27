@@ -14,19 +14,20 @@
 .navbar{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: #407540;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .1), 8px 8px 16px rgba(0, 0, 0, .1);
     
 }
 
 .navbar > .nav-logo{
-    @apply m-2;
+    @apply m-0;
 }
 
 
 .navbar > .nav-motto{
-    width: 45%;
+    width: 50%;
 }
 
 .navbar .icon-div{

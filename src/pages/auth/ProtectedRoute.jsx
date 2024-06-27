@@ -4,10 +4,16 @@ import { UserContext } from '../../context/UserContext';
 
 const ProtectedRoute = ({ routePage }) => {
 
-    const { userState } = useContext(UserContext);
+  const { userState } = useContext(UserContext);
 
-  return userState ? routePage : <Navigate to={"/"} />;
-  
+  if (!userState) {
+    return <Navigate to={"/"} replace />
+  }
+
+  return routePage
+
+  // return userState ? routePage : <Navigate to={"/"} />;
+
 }
 
 export default ProtectedRoute
