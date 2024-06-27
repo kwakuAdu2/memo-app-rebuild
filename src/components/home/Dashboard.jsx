@@ -57,6 +57,9 @@ const Dashboard = () => {
     fetchRecentMemos();
   },[])
 
+  const handleMemoEdit = () => {
+    alert("This feature is under development");
+  }
  
   // const newMemo = memos.slice(2, 5)
   // console.log("New Memo", newMemo)
@@ -66,11 +69,11 @@ const Dashboard = () => {
   return (
     <section className="dashboard">
       <h1 className='text-3xl font-semibold m-10 w-4/5'>Recent Memos</h1>
-        <div className="bottom-section grid sm:grid-cols- ">
+        <div className="bottom-section grid grid-cols-3">
 
            {
             memos.map((memo) => (
-             <MemoPreview memo={memo} />
+             <MemoPreview key={memo.id} memo={memo} handleMemoEdit={handleMemoEdit}/>
             ))
           } 
 

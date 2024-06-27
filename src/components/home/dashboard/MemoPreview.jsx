@@ -2,7 +2,7 @@ import React from 'react';
 import "../../home/home.css"
 import { Link } from 'react-router-dom';
 
-const MemoPreview = ({ memo }) => {
+const MemoPreview = ({ memo,handleMemoEdit }) => {
   let bodyContent = "This is a test memo, ";
 
   try {
@@ -62,8 +62,8 @@ const MemoPreview = ({ memo }) => {
         <div dangerouslySetInnerHTML={{ __html: bodyContent.slice(0, 100)}} />
       </div>
       <div className="body mt-2 flex justify-end gap-3">
-        <Link className='text-blue-500 underline' to={"#"}>Preview</Link>
-        <Link className='text-blue-500 underline' to={"#"}>Edit</Link>
+        <Link className='text-blue-500 underline' onClick={() => handleMemoEdit()} to={"#"}>Preview</Link>
+        <Link className='text-blue-500 underline'onClick={() => handleMemoEdit()} to={"#"}>Edit</Link>
       </div>
     </div>
   );
